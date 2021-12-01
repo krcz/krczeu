@@ -139,7 +139,10 @@ module.exports = {
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
-        remarkPlugins: [require("remark-math")],
+        remarkPlugins: [
+          require("remark-math"),
+          [require("remark-textr"), {plugins: require("./src/textr-plugins.js").plugins}]
+        ],
         rehypePlugins: [require("rehype-katex")],
       },
     },
