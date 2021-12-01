@@ -21,6 +21,7 @@ module.exports = {
       resolve: `@lekoarts/gatsby-theme-minimal-blog`,
       // See the theme's README for all available options
       options: {
+        mdx: false,
         navigation: [
           {
             title: `Blog`,
@@ -130,6 +131,16 @@ module.exports = {
             title: `krcz.eu - @krcz/krczeu`,
           },
         ],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-theme-ui`,
+    },
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        remarkPlugins: [require("remark-math")],
+        rehypePlugins: [require("rehype-katex")],
       },
     },
     `gatsby-plugin-gatsby-cloud`,
