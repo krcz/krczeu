@@ -139,6 +139,15 @@ module.exports = {
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
+        gatsbyRemarkPlugins: [
+          'gatsby-remark-numbered-footnotes',
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1200,
+            },
+          },
+        ],
         remarkPlugins: [
           require("remark-math"),
           [require("remark-textr"), {plugins: require("./src/textr-plugins.js").plugins}]

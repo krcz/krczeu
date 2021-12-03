@@ -24,6 +24,7 @@
     "gatsby-plugin-sitemap": "^5.0.0",
     "gatsby-plugin-theme-ui": "^0.12.1",
     "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.22",
+    "gatsby-remark-numbered-footnotes": "^1.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "rehype-katex": "^4.0.0",
