@@ -2,7 +2,7 @@ name: build-gatsby-site
 on: [push]
 jobs:
   build-gasby:
-    name: Build Gatsby
+    name: Build and deploy Gatsby
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -30,3 +30,12 @@ jobs:
         env:
           GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES: true
           CI: true
+
+      - name: Install SSH Key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.GATSBY_DEPLOY_SSH_KEY }}
+          known_hosts: ${{ secrets.SSH_HOST_KEYS }}
+
+      - name: Deploy Gatsby to the droplet
+        run: rsync -avz public/ gatsby@${{ secrets.SSH_HOST }}:krczeu/
